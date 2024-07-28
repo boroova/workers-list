@@ -1,0 +1,29 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
+.table {
+    th {
+        cursor: pointer;
+        position: relative;
+        &.sorted-down::before,
+        &.sorted-up::before {
+            content: '';
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px; /* Adjust size as needed */
+            height: 30px; /* Adjust size as needed */
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        &.sorted-down::before {
+            background-image: url('../assets/images/arrow-down.svg');
+        }
+
+        &.sorted-up::before {
+            background-image: url('../assets/images/arrow-up.svg');
+        }
+    }
+}

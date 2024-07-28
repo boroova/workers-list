@@ -1,0 +1,52 @@
+{
+  "workers": [
+    {
+      "name": "John",
+      "surname": "Doe",
+      "salary": 50000,
+      "status": "Employed"
+    },
+    {
+      "name": "Jane",
+      "surname": "Smith",
+      "salary": 60000,
+      "status": "On leave"
+    },
+    {
+      "name": "Emily",
+      "surname": "Johnson",
+      "salary": 45000,
+      "status": "Employed"
+    },
+    {
+      "name": "Michael",
+      "surname": "Brown",
+      "salary": 70000,
+      "status": "Fired"
+    },
+    {
+      "name": "Chris",
+      "surname": "Williams",
+      "salary": 52000,
+      "status": "Employed"
+    },
+    {
+      "name": "Sarah",
+      "surname": "Taylor",
+      "salary": 58000,
+      "status": "On leave"
+    },
+    {
+      "name": "David",
+      "surname": "Lee",
+      "salary": 49000,
+      "status": "Employed"
+    },
+    {
+      "name": "Sophia",
+      "surname": "Davis",
+      "salary": 63000,
+      "status": "Fired"
+    }
+  ]
+}
