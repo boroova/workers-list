@@ -1,12 +1,13 @@
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import './App.css';
 import { Header } from './components/Header/Header';
-import { useEffect, useState } from 'react';
-// Import our custom CSS
-import './scss/styles.scss'
+import './scss/styles.scss';
 import { Employee } from './models/Employee';
 import { Search } from './components/Search/Search';
 import { v4 as uuidv4 } from 'uuid';
+import { Edit } from './pages/Edit/Edit';
+import { WorkersTable } from './components/WorkersTable/WorkersTable';
 
 function App() {
   const [workers, setWorkers] = useState<Employee[]>([]);
@@ -19,7 +20,7 @@ function App() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data: Employee[] = await response.json();
-        
+
         // Add a UUID to each employee object if it doesn't already have one
         const dataWithUUID = data.map(employee => ({
           ...employee,
@@ -36,14 +37,33 @@ function App() {
     fetchData();
   }, []);
 
+  const updateWorker = (updatedWorker: Employee) => {
+    setWorkers(prevWorkers =>
+      prevWorkers.map(worker =>
+        worker.uuid === updatedWorker.uuid ? updatedWorker : worker
+      )
+    );
+  };
+
   return (
-    <>
-      <Container>
-        <Header />
-        <h1>Employees</h1>
-        <Search source={workers}/>
-      </Container>
-    </>
+    <Container>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <h1>Employees</h1>
+              <Search source={workers} />
+            </>
+          }
+        />
+        <Route
+          path="/edit/:uuid"
+          element={<Edit workers={workers} updateWorker={updateWorker} />}
+        />
+      </Routes>
+    </Container>
   );
 }
 
