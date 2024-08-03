@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { Header } from './components/Header/Header';
@@ -7,7 +7,6 @@ import { Employee } from './models/Employee';
 import { Search } from './components/Search/Search';
 import { v4 as uuidv4 } from 'uuid';
 import { Edit } from './pages/Edit/Edit';
-import { WorkersTable } from './components/WorkersTable/WorkersTable';
 
 function App() {
   const [workers, setWorkers] = useState<Employee[]>([]);
