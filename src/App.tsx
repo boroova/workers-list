@@ -7,9 +7,12 @@ import { Employee } from './models/Employee';
 import { Search } from './components/Search/Search';
 import { v4 as uuidv4 } from 'uuid';
 import { Edit } from './pages/Edit/Edit';
+import { Add } from './pages/Add/Add';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const [workers, setWorkers] = useState<Employee[]>([]);
+  const {t} = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,6 +47,13 @@ function App() {
     );
   };
 
+  const addWorker = (newWorker: Employee) => {
+    if (!newWorker.uuid) {
+      newWorker.uuid = uuidv4();
+    }
+    setWorkers(prevWorkers => [...prevWorkers, newWorker])
+  };
+
   return (
     <Container>
       <Header />
@@ -52,14 +62,18 @@ function App() {
           path="/"
           element={
             <>
-              <h1>Employees</h1>
+              <h1>{t('employees')}</h1>
               <Search source={workers} />
             </>
           }
         />
         <Route
+          path="/add"
+          element={<Add addWorker={addWorker} />}
+        />
+        <Route
           path="/edit/:uuid"
-          element={<Edit workers={workers} updateWorker={updateWorker} />}
+          element={<Edit updateWorker={updateWorker} />}
         />
       </Routes>
     </Container>

@@ -26,4 +26,11 @@
             background-image: url('../assets/images/arrow-up.svg');
         }
     }
+
+    @media (max-width: 991px) {
+        th:first-child,
+        td:first-child {
+            display: none;
+        }
+    }
 }

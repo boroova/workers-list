@@ -17,10 +17,12 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "i18next": "^23.12.2",
     "json-server": "^1.0.0-beta.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0",
     "react-router-dom": "^6.25.1",
     "uuid": "^10.0.0"
   },
