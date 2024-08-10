@@ -76,7 +76,7 @@ export const WorkersTable = ({ data }: TableData) => {
                             </Link>
                         </td>
                         <td>
-                            <p onClick={() => handleRemove(el.uuid)} style={{textDecoration: 'underline', cursor: 'pointer'}}>Remove</p>
+                            <p onClick={() => handleRemove(el.uuid)} style={{color: 'red', textDecoration: 'underline', cursor: 'pointer'}}>Remove</p>
                         </td>
                     </tr>
                 ))}
