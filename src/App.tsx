@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/workers');
+        const response = await fetch('https://my-json-server.typicode.com/boroova/mock-api/workers');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
