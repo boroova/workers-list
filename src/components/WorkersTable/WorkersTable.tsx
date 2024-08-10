@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Employee } from "../../models/Employee";
 import { Link } from "react-router-dom";
 import { t } from "i18next";
+import { StatusDisplayHandler } from "./StatusDisplayHandler";
 
 export interface TableData {
     data: Employee[];
@@ -66,17 +67,17 @@ export const WorkersTable = ({ data }: TableData) => {
                         <td>{el.name}</td>
                         <td>{el.surname}</td>
                         <td>{el.salary}</td>
-                        <td>{el.status}</td>
+                        <td><StatusDisplayHandler status={el.status} /></td>
                         <td>
                             <Link 
                                 to={`/edit/${el.uuid}`}
                                 state={{ worker: el }}
                             >
-                                Edit
+                                {t('edit')}
                             </Link>
                         </td>
                         <td>
-                            <p onClick={() => handleRemove(el.uuid)} style={{color: 'red', textDecoration: 'underline', cursor: 'pointer'}}>Remove</p>
+                            <p onClick={() => handleRemove(el.uuid)} style={{color: 'red', textDecoration: 'underline', cursor: 'pointer'}}>{t('remove')}</p>
                         </td>
                     </tr>
                 ))}

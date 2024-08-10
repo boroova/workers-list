@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Employee } from '../../models/Employee';
 import { Container, Row, Col, Form as BootstrapForm, Button } from 'react-bootstrap';
+import { t } from "i18next";
 
 interface FormProps {
   initialWorker: Employee;
@@ -32,12 +33,12 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
 
   return (
     <Container>
-      <h2 className="my-4">{worker.uuid ? 'Edit' : 'Add'} Worker</h2>
+      <h2 className="my-4">{worker.uuid ? t("edit") + " " + t("Worker") : t("Add") + " " + t("Worker")}</h2>
       <BootstrapForm onSubmit={handleSubmit}>
         <Row>
           <Col md={6}>
             <BootstrapForm.Group controlId="formName">
-              <BootstrapForm.Label>Name</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("Name")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="text"
                 name="name"
@@ -49,7 +50,7 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
           </Col>
           <Col md={6}>
             <BootstrapForm.Group controlId="formSurname">
-              <BootstrapForm.Label>Surname</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("Surname")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="text"
                 name="surname"
@@ -63,7 +64,7 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
         <Row>
           <Col md={6}>
             <BootstrapForm.Group controlId="formBirthdate">
-              <BootstrapForm.Label>Birthdate</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("Birthdate")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="date"
                 name="birthdate"
@@ -75,7 +76,7 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
           </Col>
           <Col md={6}>
             <BootstrapForm.Group controlId="formStreet">
-              <BootstrapForm.Label>Street</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("Street")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="text"
                 name="street"
@@ -89,7 +90,7 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
         <Row>
           <Col md={6}>
             <BootstrapForm.Group controlId="formCity">
-              <BootstrapForm.Label>City</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("City")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="text"
                 name="city"
@@ -101,7 +102,7 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
           </Col>
           <Col md={6}>
             <BootstrapForm.Group controlId="formPostalCode">
-              <BootstrapForm.Label>Postal Code</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("Postal Code")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="text"
                 name="postalCode"
@@ -115,7 +116,7 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
         <Row>
           <Col md={6}>
             <BootstrapForm.Group controlId="formSalary">
-              <BootstrapForm.Label>Salary</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("Salary")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="number"
                 name="salary"
@@ -127,7 +128,7 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
           </Col>
           <Col md={6}>
             <BootstrapForm.Group controlId="formPhoneNumber">
-              <BootstrapForm.Label>Phone Number</BootstrapForm.Label>
+              <BootstrapForm.Label>{t("Phone number")}</BootstrapForm.Label>
               <BootstrapForm.Control
                 type="tel"
                 name="phoneNumber"
@@ -148,16 +149,16 @@ export const EmployeeForm = ({ initialWorker, onSubmit }: FormProps) => {
               onChange={handleInputChange}
               required
             >
-              <option value="" disabled>--- Choose worker status ---</option>
-              <option value="Employed">Employed</option>
-              <option value="On leave">On leave</option>
-              <option value="Fired">Fired</option>
+              <option value="" disabled>--- {t("Choose worker status")} ---</option>
+              <option value="Employed">{t("Employed")}</option>
+              <option value="On leave">{t("On leave")}</option>
+              <option value="Fired">{t("Fired")}</option>
             </BootstrapForm.Select>
           </BootstrapForm.Group>
           </Col>
         </Row>
         <Button variant="primary" type="submit">
-          Save
+        {t("Save")}
         </Button>
       </BootstrapForm>
     </Container>

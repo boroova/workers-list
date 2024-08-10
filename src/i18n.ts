@@ -27,9 +27,24 @@ const resources = {
             "edit": "Edytuj",
             "remove": "Usuń",
             "home": "Strona główna",
-            "add new worker": "Dodaj nowego pracownika"
-    }    
-}
+            "add new worker": "Dodaj nowego pracownika",
+            "Employed": "Zatrudniony",
+            "On leave": "Na zwolnieniu",
+            "Fired": "Zwolniony",
+            "Name": "Imię",
+            "Surname": "Nazwisko",
+            "Birthdate": "Data urodzenia",
+            "Street": "Adres",
+            "City": "Miasto",
+            "Postal Code": "Kod pocztowy",
+            "Salary": "Pensja",
+            "Phone number": "Numer telefonu",
+            "Save": "Zapisz",
+            "Choose worker status": "Wybierz status zatrudnienia",
+            "Add": "Dodaj",
+            "Worker": "pracownika"
+        }    
+        }
 }
 
 i18n.use(initReactI18next).init({
